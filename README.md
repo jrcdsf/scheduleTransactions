@@ -1,2 +1,2 @@
 # scheduleTransactions
-Transaction scheduling
+Transaction scheduling CRUD for AWS DynamoDB
