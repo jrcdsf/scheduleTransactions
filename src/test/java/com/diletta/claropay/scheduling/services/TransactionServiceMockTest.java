@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
@@ -25,13 +26,22 @@ public class TransactionServiceMockTest {
     @Mock
     private List<Transaction> transactionListMock;
 
+    @Mock
+    private Transaction transactionMock;
+
     @BeforeEach
     void setupMock() {
         when(transactionRepository.findAll()).thenReturn(transactionListMock);
+        when(transactionRepository.findById(any())).thenReturn(java.util.Optional.of(transactionMock));
     }
 
     @Test
     void testFindAll() {
         assertEquals(transactionListMock, transactionService.findAll());
+    }
+
+    @Test
+    void testFindById() {
+        assertEquals(transactionMock, transactionService.findById(any()));
     }
 }
