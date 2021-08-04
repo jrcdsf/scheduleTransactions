@@ -1,0 +1,19 @@
+{
+  "TableName": "Transactions",
+  "AttributeDefinitions": [
+    {
+      "AttributeName": "transaction_id",
+      "AttributeType": "S"
+    }
+  ],
+  "KeySchema": [
+    {
+      "AttributeName": "transaction_id",
+      "KeyType": "HASH"
+    }
+  ],
+  "ProvisionedThroughput": {
+    "ReadCapacityUnits": 5,
+    "WriteCapacityUnits": 5
+  }
+}
