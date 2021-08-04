@@ -3,6 +3,7 @@ package com.diletta.claropay.scheduling.services;
 import com.diletta.claropay.scheduling.dao.TransactionRepository;
 import com.diletta.claropay.scheduling.entities.Transaction;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -35,11 +36,13 @@ public class TransactionServiceMockTest {
         when(transactionRepository.findById(any())).thenReturn(java.util.Optional.of(transactionMock));
     }
 
+    @DisplayName("FindAll() should return all the transactions")
     @Test
     void testFindAll() {
         assertEquals(transactionListMock, transactionService.findAll());
     }
 
+    @DisplayName("FindAll() should return a specific transaction")
     @Test
     void testFindById() {
         assertEquals(transactionMock, transactionService.findById(any()));
